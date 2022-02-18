@@ -1,0 +1,26 @@
+Homework teórico del Readme 06-JS-V
+
+1.Explicaciones de conceptos como si se los estuviera explicando a un niño de 12 años:
+
+*Prototype:
+	Todos los objetos de JavaScript tienen una referencia a otro objeto que es llamado su prototipo. Cada objeto que creamos en JavaScript tiene sus propias propiedades, pero a su vez tiene definido un prototipo. Un ejemplo simple es jazmín, rosas, lirios; que serían objetos del prototipo "Flores". 
+	Para lo que más sirve es para compartir métodos (funciones). Suponiendo que quiero crear muchos objetos similares que tengan una parte de código en común, lo que debo hacer es incluir este código en el prototipo de estos objetos, y así no deberé incluirlo cada vez que escriba uno de estos objetos. Por ejemplo:
+function Persona (edad) {		Acá primero define
+	this.edad = edad;	---->	el constructor.
+}
+Persona.prototype.getEdad = function () {		Acá define una propiedad del 
+	return this.edad;			---->	prototipo Persona que se llama
+}							getEdad (todos los objetos la compartirán)
+
+var Paulo = new Persona (24);
+var Andrea = new Persona (45);
+
+*Constructors (de Clases):
+	Function constructors es una función que se llama constructor porque permite crear objetos. Todas las funciones constructoras de clase deberían comenzar con mayúscula inicial ya que es una convención entre programadores para así poder diferenciarla de una función común. Las clases se instancian usando la palabra clave "new" y pueden tener argumentos. Por ejemplo:
+function Persona () {
+	this.firstname = 'Ailen';
+	this.lastname = 'De Santis';
+}
+var Ailen = new Persona(),
+
+En el ejemplo anterior se puede ver que "Persona" es el nombre de la clase y la inicial es mayúscula (P)
