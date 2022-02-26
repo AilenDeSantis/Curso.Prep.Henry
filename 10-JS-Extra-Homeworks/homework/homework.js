@@ -10,6 +10,14 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  Array2 = [];
+  for (let clave in objeto) {
+    Array1 = [];
+    Array1.push(clave);
+    Array1.push(objeto[clave]);
+    Array2.push(Array1); 
+  }
+  return Array2;
 }
 
 
@@ -18,7 +26,36 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var string;
+  var arr1=[];
+  var arr2=[];
+  var repe=0;
+  var acc;
+  var obj={};
+  
+  for(var i=0;i<string.length;i++){
+      acc=0;
+      repe=0;
+      for(var x=0;x<arr1.length;x++){
+        if(string[i]===arr1[x]){
+         repe=1;
+        }
+      }if (repe===0){
+         arr1.push(string[i]);
+          for (var t=0;t<string.length;t++) {
+              if(string[t]===arr1[x]) {
+              acc=acc+1;
+              }
+            }
+            arr2.push(acc);
+    }
 }
+for (var i=0;i<arr1.length;i++) {
+    Object.assign(obj,{[arr1[i]]:arr2[i]});
+}
+  return obj;
+}
+
 
 
 function capToFront(s) {
@@ -26,6 +63,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var arrayma="";
+  var arraymi=""
+  for (var i=0;i<s.length;i++) {
+    if (s[i]===s[i].toUpperCase()) {
+      arrayma=arrayma+s[i];
+    }else{
+      arraymi=arraymi+s[i];
+    }
+  }
+  return arrayma+arraymi;
 }
 
 
@@ -50,13 +97,45 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var sinABC = '';
+  for (i=0;i<cadena.length;i++) {
+    if (cadena[i] === 'a' || cadena[i]=== 'b' || cadena[i] === 'c') {
+      continue;
+    }
+    else{
+      sinABC += cadena[i];
+    }
+  }
+  return sinABC;
 }
-
-
+  
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  var arrord= [];
+  var aux1= "";
+  var aux2= "";
+  var indice=0;
+ for (var i=0; i<arr.length;i++) {
+   if(arr[i].length>aux2.length) {
+     aux2=arr[i];
+   }
+ }
+  aux1= aux2+" ";
+  aux2= aux2+" ";
+  for (var x=0; x<arr.length;x++) {
+    for(var n=0;n<arr.length;n++) {
+      if(arr[n].length<aux1.length){
+        aux1= arr[n];
+        indice=n;
+      }
+    }
+    arr[indice]=aux2;
+    arrord.push(aux1);
+    aux1=aux2;
+  }
+ return arrord;
 }
 
 
@@ -66,6 +145,7 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+
 }
 
 
@@ -83,4 +163,3 @@ module.exports = {
    sortArray,
    buscoInterseccion,
 };
-
